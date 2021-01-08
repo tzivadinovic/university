@@ -1,0 +1,26 @@
+1. Zadatak
+ALTER TABLE soba ADD sprat int not null default 1;
+
+2. Zadatak
+ALTER TABLE gost DROP adresa;
+
+3. Zadatak
+UPDATE gost SET jmbg = 0405000730049 WHERE gost_id = 2;
+
+4. Zadatak
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+UPDATE gost SET jmbg = 0405000730049 WHERE gost_id = 2;
+COMMIT;
+SET AUTOCOMMIT = 1;
+
+5. Zadatak
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+UPDATE soba SET broj = 205 WHERE soba_id= 1;
+ROLLBACK;
+COMMIT;
+SET AUTOCOMMIT = 1;
+
+6. Zadatak 
+mysqldamp -u root -p database hotel_it350 > backupdbase.sql

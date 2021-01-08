@@ -1,0 +1,17 @@
+Indeks = 3948 % 15 + 1 = 4
+
+1.Grupa zadataka
+4. Proizvođače koji proizvode najviše dva različita računara (PC ili laptop) sa brzinama
+ne manjim od 2.50GHz
+
+*******************************************************************************************************
+
+π maker (σ type=PC∨type=laptop (Product)) χ π (σ speed≥2.50∧COUNT≥2 (π speed (PC) ∪ π speed (Laptop)))
+
+2.Grupa zadataka
+4. Sve zemlje koje poseduju borbene brodove (bb) ili borbene kruzere (bc)
+
+*******************************************************************************************************
+
+π country (σ type = bb v σ type = bc(Classes))
+

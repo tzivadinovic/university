@@ -1,0 +1,33 @@
+<div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="taxId">
+      <th mat-header-cell *matHeaderCellDef> Tax ID </th>
+      <td mat-cell *matCellDef="let object"> {{object.taxId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let object"> {{object.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="workCode">
+      <th mat-header-cell *matHeaderCellDef> Work Code </th>
+      <td mat-cell *matCellDef="let object"> {{object.workCode}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Actions </th>
+      <td mat-cell *matCellDef="let object" class="actions-field">
+        <button mat-raised-button color="primary" class="edit-button" (click)="openEditDialog(object)">Edit</button>
+        <button mat-raised-button color="primary" class="delete-button" (click)="openDeleteDialog(object.id)">Delete</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-raised-button color="primary" class="add-product-button" (click)="openAddDialog()">Add retail store</button>
+</div>
+

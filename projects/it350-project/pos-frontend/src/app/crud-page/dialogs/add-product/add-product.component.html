@@ -1,0 +1,36 @@
+<form [formGroup]="form">
+  <h1>Adding product</h1>
+  <div>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Product Type</mat-label>
+      <mat-select formControlName="productType">
+        <mat-option *ngFor="let productType of productTypeList" [value]="productType">
+          {{productType.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input type="number" matInput formControlName="price">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Stock</mat-label>
+      <input type="number" matInput formControlName="stock">
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button color="primary" class="add-product-button" (click)="addProduct()">Add product</button>
+</form>

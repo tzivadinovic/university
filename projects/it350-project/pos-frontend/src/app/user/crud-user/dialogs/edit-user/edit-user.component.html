@@ -1,0 +1,49 @@
+<form [formGroup]="form">
+  <h1>Edit user</h1>
+  <div>
+    <mat-form-field>
+      <mat-label>Firstname</mat-label>
+      <input type="text" matInput formControlName="firstname">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Lastname</mat-label>
+      <input type="text" matInput formControlName="lastname">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Username</mat-label>
+      <input type="text" matInput formControlName="username">
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Address</mat-label>
+      <mat-select formControlName="address" [compareWith]="compareAddress">
+        <mat-option *ngFor="let address of addresses" [value]="address">
+          {{address.streetName}} {{address.streetNumber}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select formControlName="role" [compareWith]="compareRole">
+        <mat-option *ngFor="let role of roles" [value]="role">
+          {{role.role}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+
+  <button mat-raised-button color="primary" class="add-product-button" (click)="editUser()">Add user</button>
+</form>
+

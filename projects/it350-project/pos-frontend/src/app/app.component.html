@@ -1,0 +1,15 @@
+<p>
+  <mat-toolbar>
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <span style="cursor: pointer; margin-left: 40%" routerLink="">Point Of Sale - Crud App</span>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="/address">Addresses</button>
+      <button mat-menu-item routerLink="/productType">Product Types</button>
+      <button mat-menu-item routerLink="/role">Roles</button>
+      <button mat-menu-item routerLink="/supplier">Suppliers</button>
+      <button mat-menu-item routerLink="/retailStore">Retail Stores</button>
+      <button mat-menu-item routerLink="/user">Users</button>
+    </mat-menu>
+  </mat-toolbar>
+</p>
+<router-outlet></router-outlet>

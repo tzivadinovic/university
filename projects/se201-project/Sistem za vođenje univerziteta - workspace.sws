@@ -4,8 +4,8 @@
 
 <Workspace>
 	<Local Expanded="Yes">
-		<Model Expanded="Yes" ID="{B625A0BA-B50A-43AE-931C-D8D79E6C820A}" Loaded="No" Name="Sistem za vođenje univerziteta" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Sistem za vođenje univerziteta.prj"/>
-		<Model Expanded="Yes" ID="{A3349616-495F-488D-927F-144D52329183}" Name="PointOfSale" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///C|/Users/toma/Desktop/PointOfSale/PointOfSale.prj"/>
+		<Model Expanded="Yes" ID="{B625A0BA-B50A-43AE-931C-D8D79E6C820A}" Name="Sistem za vođenje univerziteta" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="Sistem za vođenje univerziteta.prj"/>
+		<Model Expanded="Yes" ID="{A3349616-495F-488D-927F-144D52329183}" Loaded="No" Name="PointOfSale" Type="{FF4B6538-9856-42CF-B9B9-304ED370CEAA}" URL="file:///C|/Users/toma/Desktop/PointOfSale_Models/PointOfSale_Models/PointOfSale.prj"/>
 	</Local>
 	<BrowserModule Name="Repository"/>
 </Workspace>

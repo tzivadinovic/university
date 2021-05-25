@@ -1,17 +1,23 @@
 package rs.ac.metropolitan.eLearning.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Table(name = "role")
 @Data
-public class Role {
+public class Role implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "role_id")
     private Integer id;
     @Column(name = "role")
     private String role;
+    @ManyToMany(mappedBy = "roles")
+    @ToString.Exclude
+    private List<User> users;
 }

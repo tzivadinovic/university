@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="elearning@192.168.1.101" uuid="c8a604c3-6bf0-4114-884f-36b336f9aa27">
+    <data-source source="LOCAL" name="elearning@127.0.0.1" uuid="c8a604c3-6bf0-4114-884f-36b336f9aa27">
       <driver-ref>mariadb</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.mariadb.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mariadb://192.168.1.101:3306/elearning</jdbc-url>
+      <jdbc-url>jdbc:mariadb://127.0.0.1:3306/elearning</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
     <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="5df13302-41ec-459b-ad64-3c78aa26a992">

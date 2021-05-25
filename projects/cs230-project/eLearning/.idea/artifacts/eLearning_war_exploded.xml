@@ -16,6 +16,7 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.mariadb.jdbc:mariadb-java-client:2.7.3" />
           <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.20" />
+          <element id="library" level="project" name="Maven: com.google.guava:guava:20.0" />
         </element>
       </element>
       <element id="directory" name="META-INF">

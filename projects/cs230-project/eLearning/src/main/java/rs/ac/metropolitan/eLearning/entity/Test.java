@@ -18,7 +18,7 @@ public class Test implements Serializable {
     @Column(name = "title")
     private String title;
     @Column(name = "date_time")
-    private LocalDateTime dateTime;
+    private String dateTime;
     @Column(name = "max_points")
     private Double maxPoints;
     @ManyToMany

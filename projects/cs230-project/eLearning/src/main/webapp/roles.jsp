@@ -38,4 +38,5 @@
 <a class="btn-floating btn-large waves-effect waves-light blue add-button" href="add-role-form.jsp">
     <i class="material-icons">add</i></a>
 </body>
+
 </html>

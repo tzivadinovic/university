@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@ include file="header.html" %>
-<jsp:include page="question-form.html"></jsp:include>
+<jsp:include page="question-form.jsp"></jsp:include>
 
 </body>
 </html>

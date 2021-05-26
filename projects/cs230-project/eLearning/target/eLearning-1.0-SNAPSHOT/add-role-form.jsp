@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@ include file="header.html" %>
-<jsp:include page="role-form.html"></jsp:include>
+<jsp:include page="role-form.jsp"></jsp:include>
 
 </body>
 </html>

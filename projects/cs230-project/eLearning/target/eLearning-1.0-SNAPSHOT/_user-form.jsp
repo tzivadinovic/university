@@ -20,7 +20,7 @@
     <input type="email" name="email" style="margin-bottom: 50px"/>
     <h6>Roles:</h6>
     <div class="input-field col s12">
-        <select multiple>
+        <select multiple name="roles">
             <option value="" disabled selected>Choose your option</option>
             <c:forEach items="${roles}" var="role">
                 <option value="${role.id}">${role.role}</option>

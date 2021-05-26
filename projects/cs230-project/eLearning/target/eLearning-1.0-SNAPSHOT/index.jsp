@@ -12,7 +12,7 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="assets/sample-1.jpg" alt="">
+                <img src="assets/test.jpg" alt="">
                 <span class="card-title">Tests</span>
                 <a class="btn-floating halfway-fab waves-effect waves-light light-blue" href="tests.jsp"><i
                         class="material-icons">arrow_forward</i></a>
@@ -27,7 +27,7 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="assets/sample-1.jpg" alt="">
+                <img src="assets/question.jpg" alt="">
                 <span class="card-title">Questions</span>
                 <a class="btn-floating halfway-fab waves-effect waves-light light-blue" href="questions.jsp"><i
                         class="material-icons">arrow_forward</i></a>
@@ -42,7 +42,7 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="assets/sample-1.jpg" alt="">
+                <img src="assets/users.jpg" alt="">
                 <span class="card-title">Users</span>
                 <a class="btn-floating halfway-fab waves-effect waves-light light-blue" href="users.jsp"><i
                         class="material-icons">arrow_forward</i></a>
@@ -57,7 +57,7 @@
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-                <img src="assets/sample-1.jpg" alt="">
+                <img src="assets/roles.jpg" alt="">
                 <span class="card-title">Roles</span>
                 <a class="btn-floating halfway-fab waves-effect waves-light light-blue" href="roles.jsp"><i
                         class="material-icons">arrow_forward</i></a>
@@ -74,7 +74,7 @@
 
 <style>
     body {
-        background-image: url("assets/Home-Page-Background-Picture.jpg");
+        background-image: linear-gradient(to right, #051937, #004d7a, #008793, #00bf72, #a8eb12);
         min-height: 100vh;
         margin: 0;
         padding: 0;

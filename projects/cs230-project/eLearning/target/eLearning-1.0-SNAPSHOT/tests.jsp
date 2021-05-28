@@ -28,6 +28,7 @@
             <th>Date & Time</th>
             <th>Max points</th>
             <th>Questions</th>
+            <th>Users</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -38,6 +39,7 @@
                 <td>${u.dateTime}</td>
                 <td>${u.maxPoints}</td>
                 <td>${u.questions}</td>
+                <td>${u.users}</td>
                 <td><a href="edit-test-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>
                 <td><a href="delete-test.jsp?id=${u.id}"><i class="material-icons delete-btn">delete</i></a></td>
             </tr>

@@ -57,7 +57,10 @@ public class EditUserServlet extends HttpServlet {
 
 
         RoleDAO roleDAO = new RoleDAO();
-        List<Role> roles = Arrays.stream(req.getParameterValues(("roles")))
+        String[] rolesArr = req.getParameterValues(("roles"));
+        if (rolesArr == null) rolesArr = new String[]{};
+
+        List<Role> roles = Arrays.stream(rolesArr)
                 .map(Integer::parseInt)
                 .map(roleDAO::find)
                 .collect(Collectors.toList());

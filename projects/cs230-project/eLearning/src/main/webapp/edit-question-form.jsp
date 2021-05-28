@@ -9,14 +9,16 @@
 <%@ include file="header.jsp" %>
 <%
     QuestionDAO questionDAO = new QuestionDAO();
-    String id = request.getParameter("id");
-    Question q = questionDAO.find(Integer.parseInt(id));
+    String questionId = request.getParameter("id");
+    Question q = questionDAO.find(Integer.parseInt(questionId));
 %>
 
 <form action="edit-question.jsp" method="post">
     <input type="hidden" name="id" value="<%=q.getId() %>"/>
     <h6>Question Text:</h6>
     <input type="text" name="text" value="<%= q.getText()%>"/>
+    <h6>Answer</h6>
+    <input type="text" name="answer" value="<%= q.getAnswer()%>"/>
     <h6>Points:</h6>
     <input type="number" name="points" value="<%= q.getPoints()%>"/>
 

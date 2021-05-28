@@ -1,6 +1,7 @@
 package rs.ac.metropolitan.eLearning.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.ToString;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
@@ -8,13 +9,16 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "test")
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Test implements Serializable {
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "test_id")
     private Integer id;
@@ -27,11 +31,9 @@ public class Test implements Serializable {
     @ManyToMany(fetch = FetchType.EAGER)
     @ToString.Exclude
     @JoinTable(name = "question_test", joinColumns = @JoinColumn(name = "test_id"), inverseJoinColumns = @JoinColumn(name = "question_id"))
-    private List<Question> questions;
+    private List<Question> questions = new ArrayList<>();
     @ToString.Exclude
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "user_test", joinColumns = @JoinColumn(name = "test_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
-
-
+    private List<User> users = new ArrayList<>();
 }

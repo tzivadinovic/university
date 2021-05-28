@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Edit User</title>
+    <title>Edit Test</title>
 </head>
 <body>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.TestDAO" %>
@@ -26,6 +26,7 @@
     UserDAO userDAO = new UserDAO();
     List<User> users = userDAO.findAll();
     request.setAttribute("users", users);
+    request.setAttribute("test", t);
 %>
 
 <form action="${pageContext.request.contextPath}/edit-test" method="post">
@@ -39,9 +40,9 @@
     <h6>Questions:</h6>
     <div class="input-field col s12">
         <select multiple name="questions">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="" disabled>Choose your option</option>
             <c:forEach items="${questions}" var="question">
-                <option value="${question.id}">${question.text}</option>
+                <option ${test.questions.contains(question) ? 'selected' : ''} value="${question.id}">${question.text}</option>
             </c:forEach>
         </select>
     </div>
@@ -49,9 +50,10 @@
     <h6>Users:</h6>
     <div class="input-field col s12">
         <select multiple name="users">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="" disabled>Choose your option</option>
             <c:forEach items="${users}" var="user">
-                <option value="${user.id}">${user.firstName} ${user.firstName}</option>
+                <option ${test.users.contains(user) ? 'selected' : ''}
+                        value="${user.id}">${user.firstName} ${user.firstName}</option>
             </c:forEach>
         </select>
     </div>

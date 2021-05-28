@@ -18,6 +18,7 @@
     RoleDAO roleDAO = new RoleDAO();
     List<Role> roleList = roleDAO.findAll();
     request.setAttribute("roles", roleList);
+    request.setAttribute("user", u);
 %>
 
 <form action="${pageContext.request.contextPath}/edit-user" method="post">
@@ -32,10 +33,10 @@
     <input type="email" name="email" value="<%= u.getEmail()%>"/>
     <h6>Roles:</h6>
     <div class="input-field col s12">
-        <select multiple name="roles">
-            <option value="" disabled selected>Choose your option</option>
+        <select  multiple name="roles">
+            <option value="" disabled>Choose your option</option>
             <c:forEach items="${roles}" var="role">
-                <option value="${role.id}">${role.role}</option>
+                <option ${user.roles.contains(role) ? 'selected' : ''} value="${role.id}">${role.role}</option>
             </c:forEach>
         </select>
     </div>

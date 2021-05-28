@@ -1,16 +1,20 @@
 package rs.ac.metropolitan.eLearning.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Table(name = "user")
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class User implements Serializable {
     @Id
+    @EqualsAndHashCode.Include
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Integer id;
@@ -26,9 +30,9 @@ public class User implements Serializable {
     private String email;
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private List<Role> roles;
+    private List<Role> roles = new ArrayList<>();
     @ManyToMany(mappedBy = "users")
-    private List<Test> tests;
+    private List<Test> tests = new ArrayList<>();
 
     @Override
     public String toString() {

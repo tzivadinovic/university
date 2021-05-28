@@ -25,6 +25,7 @@
         <tr>
             <th>ID</th>
             <th>Text</th>
+            <th>Answer</th>
             <th>Points</th>
             <th>Edit</th>
             <th>Delete</th>
@@ -33,6 +34,7 @@
             <tr>
                 <td>${u.id}</td>
                 <td>${u.text}</td>
+                <td>${u.answer}</td>
                 <td>${u.points}</td>
                 <td><a href="edit-question-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>
                 <td><a href="delete-question.jsp?id=${u.id}"><i class="material-icons delete-btn">delete</i></a></td>

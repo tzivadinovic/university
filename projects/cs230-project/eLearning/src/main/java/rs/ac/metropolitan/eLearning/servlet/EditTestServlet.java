@@ -47,7 +47,7 @@ public class EditTestServlet extends HttpServlet {
 
         TestDAO testDAO = new TestDAO();
 
-        String testIdStr = UrlUtil.getUrlBase(req.getRequestURL().toString());
+        String testIdStr = req.getParameter("id");
         int testId = Integer.parseInt(testIdStr);
         Test test = testDAO.find(testId);
 
@@ -56,7 +56,9 @@ public class EditTestServlet extends HttpServlet {
         test.setMaxPoints(maxPoints);
 
         QuestionDAO questionDAO = new QuestionDAO();
-        List<Question> questionList = Arrays.stream(req.getParameterValues(("questions")))
+        String[] questionArr = req.getParameterValues(("questions"));
+        if (questionArr == null) questionArr = new String[]{};
+        List<Question> questionList = Arrays.stream(questionArr)
                 .map(Integer::parseInt)
                 .map(questionDAO::find)
                 .collect(Collectors.toList());
@@ -64,12 +66,16 @@ public class EditTestServlet extends HttpServlet {
         test.setQuestions(questionList);
 
         UserDAO userDAO = new UserDAO();
-        List<User> users = Arrays.stream(req.getParameterValues(("users")))
+        String[] userArr = req.getParameterValues(("users"));
+        if (userArr == null) userArr = new String[]{};
+        List<User> users = Arrays.stream(userArr)
                 .map(Integer::parseInt)
                 .map(userDAO::find)
                 .collect(Collectors.toList());
 
         test.setUsers(users);
+
+        testDAO.update(test);
 
         req.getRequestDispatcher("/tests.jsp").forward(req, resp);
     }

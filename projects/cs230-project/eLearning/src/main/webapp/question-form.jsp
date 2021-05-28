@@ -1,6 +1,8 @@
 <form action="add-question.jsp" method="post">
     <h6>Question Text:</h6>
     <input type="text" name="text"/>
+    <h6>Answer:</h6>
+    <input type="text" name="answer"/>
     <h6>Points:</h6>
     <input type="number" name="points" min="1"/>
 

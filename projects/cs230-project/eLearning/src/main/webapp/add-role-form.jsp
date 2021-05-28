@@ -5,7 +5,7 @@
     <title>Add Role</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <jsp:include page="role-form.jsp"></jsp:include>
 
 </body>

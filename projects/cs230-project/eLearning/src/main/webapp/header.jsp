@@ -1,3 +1,5 @@
+<%@ page import="rs.ac.metropolitan.eLearning.entity.Role" %>
+<%@ page import="java.util.HashSet" %>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -7,6 +9,7 @@
     <title>eLearning System</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@500display=swap');
+
         html {
             font-family: 'Assistant', sans-serif;
 
@@ -86,6 +89,12 @@
     </style>
 </head>
 <body>
+<%
+    String username = (String) session.getAttribute("username");
+    Integer id = (Integer) session.getAttribute("id");
+    Iterable<Role> roles = session.getAttribute("roles") != null ? ((Iterable<Role>) session.getAttribute("roles")) : new HashSet<Role>();
+    boolean loggedIn = username != null && id != null;
+%>
 <div id="header">
     <div class="shell">
         <div id="navigation">
@@ -95,6 +104,12 @@
                 <li><a href="questions.jsp" class="active">Questions</a></li>
                 <li><a href="users.jsp" class="active">Users</a></li>
                 <li><a href="roles.jsp" class="active">Roles</a></li>
+                <%if (!loggedIn) { %>
+                <li><a href="admin/login.jsp" class="active">Login</a></li>
+                <% } %>
+                <%if (loggedIn) { %>
+                <li><a href="admin/login.jsp" class="active">Logout</a></li>
+                <% } %>
             </ul>
         </div>
     </div>

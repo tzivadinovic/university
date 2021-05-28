@@ -11,7 +11,7 @@
 <%@page import="java.util.*" %>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.TestDAO" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.Test" %>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <br>
 <h3 style="text-align: center">Tests Management</h3>
 
@@ -27,6 +27,7 @@
             <th>Title</th>
             <th>Date & Time</th>
             <th>Max points</th>
+            <th>Questions</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -36,6 +37,7 @@
                 <td>${u.title}</td>
                 <td>${u.dateTime}</td>
                 <td>${u.maxPoints}</td>
+                <td>${u.questions}</td>
                 <td><a href="edit-test-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>
                 <td><a href="delete-test.jsp?id=${u.id}"><i class="material-icons delete-btn">delete</i></a></td>
             </tr>

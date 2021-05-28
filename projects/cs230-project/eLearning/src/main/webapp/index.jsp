@@ -5,7 +5,7 @@
     <title>eLearning System</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <br>
 
 <div class="row">

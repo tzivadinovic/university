@@ -20,4 +20,9 @@ public class Role implements Serializable {
     @ManyToMany(mappedBy = "roles")
     @ToString.Exclude
     private List<User> users;
+
+    @Override
+    public String toString() {
+        return role;
+    }
 }

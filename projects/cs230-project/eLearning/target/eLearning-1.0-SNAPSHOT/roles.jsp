@@ -11,14 +11,14 @@
 <%@page import="java.util.*" %>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.RoleDAO" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.Role" %>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <br>
 <h3 style="text-align: center">Roles Management</h3>
 
 <%
     RoleDAO roleDAO = new RoleDAO();
-    List<Role> roles = roleDAO.findAll();
-    request.setAttribute("roles", roles);
+    List<Role> rolesList = roleDAO.findAll();
+    request.setAttribute("roles", rolesList);
 %>
 <div class="table-wrapper">
     <table style="width: 100%">

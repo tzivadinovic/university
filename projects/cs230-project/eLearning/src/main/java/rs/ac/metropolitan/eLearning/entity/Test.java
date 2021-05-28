@@ -1,6 +1,9 @@
 package rs.ac.metropolitan.eLearning.entity;
 
 import lombok.Data;
+import lombok.ToString;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -21,10 +24,14 @@ public class Test implements Serializable {
     private String dateTime;
     @Column(name = "max_points")
     private Double maxPoints;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
+    @ToString.Exclude
     @JoinTable(name = "question_test", joinColumns = @JoinColumn(name = "test_id"), inverseJoinColumns = @JoinColumn(name = "question_id"))
     private List<Question> questions;
+    @ToString.Exclude
     @ManyToMany
     @JoinTable(name = "user_test", joinColumns = @JoinColumn(name = "test_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> users;
+
+
 }

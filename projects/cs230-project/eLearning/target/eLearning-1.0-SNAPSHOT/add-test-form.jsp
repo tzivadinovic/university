@@ -5,7 +5,7 @@
     <title>Add Test</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <jsp:include page="test-form.jsp"></jsp:include>
 
 </body>

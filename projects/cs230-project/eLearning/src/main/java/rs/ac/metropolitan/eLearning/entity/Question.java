@@ -1,6 +1,7 @@
 package rs.ac.metropolitan.eLearning.entity;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -18,6 +19,12 @@ public class Question implements Serializable {
     private String text;
     @Column(name = "points")
     private Double points;
+    @ToString.Exclude
     @ManyToMany(mappedBy = "questions")
     private List<Test> tests;
+
+    @Override
+    public String toString() {
+        return text + ", " + points + " points";
+    }
 }

@@ -5,7 +5,7 @@
     <title>Add User Form</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <jsp:include page="_user-form.jsp"></jsp:include>
 
 </body>

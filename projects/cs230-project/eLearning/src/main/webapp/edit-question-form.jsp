@@ -6,7 +6,7 @@
 </head>
 <body>
 <%@page import="rs.ac.metropolitan.eLearning.database.dao.QuestionDAO,rs.ac.metropolitan.eLearning.entity.Question" %>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <%
     QuestionDAO questionDAO = new QuestionDAO();
     String id = request.getParameter("id");

@@ -7,7 +7,7 @@
     List<Role> roles = roleDAO.findAll();
     request.setAttribute("roles", roles);
 %>
-<form action="add-user.jsp" method="post">
+<form action="${pageContext.request.contextPath}/add-user" method="post">
     <h6>Firstname:</h6>
     <input type="text" name="firstName"/>
     <h6>Lastname:</h6>

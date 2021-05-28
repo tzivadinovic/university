@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,14 +8,27 @@
 <body>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.TestDAO" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.Test" %>
-<%@ include file="header.html" %>
+<%@ page import="rs.ac.metropolitan.eLearning.database.dao.QuestionDAO" %>
+<%@ page import="rs.ac.metropolitan.eLearning.entity.Question" %>
+<%@ page import="rs.ac.metropolitan.eLearning.database.dao.UserDAO" %>
+<%@ page import="rs.ac.metropolitan.eLearning.entity.User" %>
+<%@ page import="java.util.List" %>
+<%@ include file="header.jsp" %>
 <%
     TestDAO testDAO = new TestDAO();
-    String id = request.getParameter("id");
-    Test t = testDAO.find(Integer.parseInt(id));
+    String testId = request.getParameter("id");
+    Test t = testDAO.find(Integer.parseInt(testId));
+
+    QuestionDAO questionDAO = new QuestionDAO();
+    List<Question> questions = questionDAO.findAll();
+    request.setAttribute("questions", questions);
+
+    UserDAO userDAO = new UserDAO();
+    List<User> users = userDAO.findAll();
+    request.setAttribute("users", users);
 %>
 
-<form action="edit-test.jsp" method="post">
+<form action="${pageContext.request.contextPath}/edit-test" method="post">
     <input type="hidden" name="id" value="<%=t.getId() %>"/>
     <h6>Title:</h6>
     <input type="text" name="title" value="<%= t.getTitle()%>"/>
@@ -22,12 +36,36 @@
     <input type="text" name="dateTime" value="<%= t.getDateTime()%>"/>
     <h6>Max points:</h6>
     <input type="number" name="maxPoints" value="<%= t.getMaxPoints()%>"/>
+    <h6>Questions:</h6>
+    <div class="input-field col s12">
+        <select multiple name="questions">
+            <option value="" disabled selected>Choose your option</option>
+            <c:forEach items="${questions}" var="question">
+                <option value="${question.id}">${question.text}</option>
+            </c:forEach>
+        </select>
+    </div>
+
+    <h6>Users:</h6>
+    <div class="input-field col s12">
+        <select multiple name="users">
+            <option value="" disabled selected>Choose your option</option>
+            <c:forEach items="${users}" var="user">
+                <option value="${user.id}">${user.firstName} ${user.firstName}</option>
+            </c:forEach>
+        </select>
+    </div>
 
     <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
     </button>
 </form>
-
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const elems = document.querySelectorAll('select');
+        const instances = M.FormSelect.init(elems, {});
+    });
+</script>
 </body>
 <style>
     input[type=text] {

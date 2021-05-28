@@ -11,7 +11,7 @@
 <%@page import="java.util.*" %>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.QuestionDAO" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.Question" %>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <br>
 <h3 style="text-align: center">Questions Management</h3>
 

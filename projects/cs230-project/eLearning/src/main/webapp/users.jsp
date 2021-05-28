@@ -10,7 +10,7 @@
 
 <%@page import="rs.ac.metropolitan.eLearning.database.dao.UserDAO,java.util.*" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.User" %>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <br>
 <h3 style="text-align: center">Users Management</h3>
 
@@ -28,6 +28,7 @@
             <th>Username</th>
             <th>Password</th>
             <th>Email</th>
+            <th>Roles</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -39,6 +40,7 @@
                 <td>${u.username}</td>
                 <td>**************</td>
                 <td>${u.email}</td>
+                <td>${u.roles}</td>
                 <td><a href="edit-user-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>
                 <td><a href="delete-user.jsp?id=${u.id}"><i class="material-icons delete-btn">delete</i></a></td>
             </tr>

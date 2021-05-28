@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,14 +7,20 @@
 </head>
 <body>
 <%@page import="rs.ac.metropolitan.eLearning.database.dao.UserDAO,rs.ac.metropolitan.eLearning.entity.User" %>
-<%@ include file="header.html" %>
+<%@ page import="rs.ac.metropolitan.eLearning.database.dao.RoleDAO" %>
+<%@ page import="java.util.List" %>
+<%@ include file="header.jsp" %>
 <%
     UserDAO userDAO = new UserDAO();
-    String id = request.getParameter("id");
-    User u = userDAO.find(Integer.parseInt(id));
+    String userId = request.getParameter("id");
+    User u = userDAO.find(Integer.parseInt(userId));
+
+    RoleDAO roleDAO = new RoleDAO();
+    List<Role> roleList = roleDAO.findAll();
+    request.setAttribute("roles", roleList);
 %>
 
-<form action="edit-user.jsp" method="post">
+<form action="${pageContext.request.contextPath}/edit-user" method="post">
     <input type="hidden" name="id" value="<%=u.getId() %>"/>
     <h6>Firstname:</h6>
     <input type="text" name="firstName" value="<%= u.getFirstName()%>"/>
@@ -23,11 +30,26 @@
     <input type="text" name="username" value="<%= u.getUsername()%>"/>
     <h6>Email:</h6>
     <input type="email" name="email" value="<%= u.getEmail()%>"/>
+    <h6>Roles:</h6>
+    <div class="input-field col s12">
+        <select multiple name="roles">
+            <option value="" disabled selected>Choose your option</option>
+            <c:forEach items="${roles}" var="role">
+                <option value="${role.id}">${role.role}</option>
+            </c:forEach>
+        </select>
+    </div>
 
     <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
     </button>
 </form>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const elems = document.querySelectorAll('select');
+        const instances = M.FormSelect.init(elems, {});
+    });
+</script>
 
 </body>
 <style>

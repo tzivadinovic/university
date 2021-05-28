@@ -5,7 +5,7 @@
     <title>Add Question</title>
 </head>
 <body>
-<%@ include file="header.html" %>
+<%@ include file="header.jsp" %>
 <jsp:include page="question-form.jsp"></jsp:include>
 
 </body>

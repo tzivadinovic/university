@@ -11,6 +11,7 @@
 <%@page import="java.util.*" %>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.QuestionDAO" %>
 <%@ page import="rs.ac.metropolitan.eLearning.entity.Question" %>
+<%@ page import="java.util.stream.Collectors" %>
 <%@ include file="header.jsp" %>
 <br>
 <h3 style="text-align: center">Questions Management</h3>
@@ -25,8 +26,8 @@
         <tr>
             <th>ID</th>
             <th>Text</th>
-            <th>Answer</th>
             <th>Points</th>
+            <th>Correct Answers</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -34,8 +35,12 @@
             <tr>
                 <td>${u.id}</td>
                 <td>${u.text}</td>
-                <td>${u.answer}</td>
                 <td>${u.points}</td>
+                <td>
+                    <c:forEach items="${u.answers}" var="answer">
+                        <c:if test="${answer.correct}">${answer.text}</c:if>
+                    </c:forEach>
+                </td>
                 <td><a href="edit-question-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>
                 <td><a href="delete-question.jsp?id=${u.id}"><i class="material-icons delete-btn">delete</i></a></td>
             </tr>

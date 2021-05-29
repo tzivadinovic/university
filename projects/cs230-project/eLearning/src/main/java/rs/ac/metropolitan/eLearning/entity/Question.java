@@ -20,13 +20,13 @@ public class Question implements Serializable {
     private Integer id;
     @Column(name = "text")
     private String text;
-    @Column(name = "answer")
-    private String answer;
     @Column(name = "points")
     private Double points;
     @ToString.Exclude
     @ManyToMany(mappedBy = "questions")
     private List<Test> tests;
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.ALL, mappedBy = "question")
+    private List<Answer> answers;
 
     @Override
     public String toString() {

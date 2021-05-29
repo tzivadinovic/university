@@ -17,8 +17,6 @@
     <input type="hidden" name="id" value="<%=q.getId() %>"/>
     <h6>Question Text:</h6>
     <input type="text" name="text" value="<%= q.getText()%>"/>
-    <h6>Answer</h6>
-    <input type="text" name="answer" value="<%= q.getAnswer()%>"/>
     <h6>Points:</h6>
     <input type="number" name="points" value="<%= q.getPoints()%>"/>
 

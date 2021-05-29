@@ -27,5 +27,6 @@
         <mapping class="rs.ac.metropolitan.eLearning.entity.Role" />
         <mapping class="rs.ac.metropolitan.eLearning.entity.Test" />
         <mapping class="rs.ac.metropolitan.eLearning.entity.User" />
+        <mapping class="rs.ac.metropolitan.eLearning.entity.Answer" />
     </session-factory>
 </hibernate-configuration>

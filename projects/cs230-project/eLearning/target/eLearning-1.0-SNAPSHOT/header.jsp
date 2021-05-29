@@ -99,17 +99,17 @@
     <div class="shell">
         <div id="navigation">
             <ul>
+                <% if (!loggedIn) {%>
+                <li><a href="admin/login.jsp" class="active">Login</a></li>
+                <%}%>
+                <%if (loggedIn) {%>
                 <li><a href="index.jsp" class="active">Home</a></li>
                 <li><a href="tests.jsp" class="active">Tests</a></li>
                 <li><a href="questions.jsp" class="active">Questions</a></li>
                 <li><a href="users.jsp" class="active">Users</a></li>
                 <li><a href="roles.jsp" class="active">Roles</a></li>
-                <%if (!loggedIn) { %>
-                <li><a href="admin/login.jsp" class="active">Login</a></li>
-                <% } %>
-                <%if (loggedIn) { %>
-                <li><a href="admin/login.jsp" class="active">Logout</a></li>
-                <% } %>
+                <li><a href="${pageContext.request.contextPath}/admin/logout" class="active">Logout</a></li>
+                <%}%>
             </ul>
         </div>
     </div>

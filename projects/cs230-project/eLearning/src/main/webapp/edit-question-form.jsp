@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,14 +12,64 @@
     QuestionDAO questionDAO = new QuestionDAO();
     String questionId = request.getParameter("id");
     Question q = questionDAO.find(Integer.parseInt(questionId));
+    request.setAttribute("question",  q);
 %>
 
-<form action="edit-question.jsp" method="post">
-    <input type="hidden" name="id" value="<%=q.getId() %>"/>
+<form action="${pageContext.request.contextPath}/edit-question" method="post">
+    <input type="number" hidden name="id" value="${question.id}"/>
     <h6>Question Text:</h6>
-    <input type="text" name="text" value="<%= q.getText()%>"/>
+    <input type="text" name="text" value="${question.text}"/>
     <h6>Points:</h6>
-    <input type="number" name="points" value="<%= q.getPoints()%>"/>
+    <input type="number" name="points" min="1" value="${question.points}"/>
+    <h6>Answers:</h6>
+    <c:forEach items="${question.answers}" var="answ" varStatus="i">
+        <div>
+            <input hidden type="text" name="answer${i.index+1}id" value="${answ.id}">
+            <textarea class="materialize-textarea" type="text" name="answer${i.index+1}text">${answ.text}</textarea>
+            <p>
+                <label>
+                    <input type="checkbox" class="filled-in" ${answ.correct ? 'checked' : ''} name="answer${i.index+1}correct"/>
+                    <span>Correct</span>
+                </label>
+            </p>
+        </div>
+    </c:forEach>
+<%--    <div>--%>
+<%--        <textarea class="materialize-textarea" type="text" name="answer1text"></textarea>--%>
+<%--        <p>--%>
+<%--            <label>--%>
+<%--                <input type="checkbox" class="filled-in" checked="checked" name="answer1correct"/>--%>
+<%--                <span>Correct</span>--%>
+<%--            </label>--%>
+<%--        </p>--%>
+<%--    </div>--%>
+<%--    <div>--%>
+<%--        <textarea class="materialize-textarea" type="text" name="answer2text"></textarea>--%>
+<%--        <p>--%>
+<%--            <label>--%>
+<%--                <input type="checkbox" class="filled-in" checked="checked" name="answer2correct"/>--%>
+<%--                <span>Correct</span>--%>
+<%--            </label>--%>
+<%--        </p>--%>
+<%--    </div>--%>
+<%--    <div>--%>
+<%--        <textarea class="materialize-textarea" type="text" name="answer3text"></textarea>--%>
+<%--        <p>--%>
+<%--            <label>--%>
+<%--                <input type="checkbox" class="filled-in" checked="checked" name="answer3correct"/>--%>
+<%--                <span>Correct</span>--%>
+<%--            </label>--%>
+<%--        </p>--%>
+<%--    </div>--%>
+<%--    <div>--%>
+<%--        <textarea class="materialize-textarea" type="text" name="answer4text"></textarea>--%>
+<%--        <p>--%>
+<%--            <label>--%>
+<%--                <input type="checkbox" class="filled-in" checked="checked" name="answer4correct"/>--%>
+<%--                <span>Correct</span>--%>
+<%--            </label>--%>
+<%--        </p>--%>
+<%--    </div>--%>
 
     <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit
         <i class="material-icons right">send</i>

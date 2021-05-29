@@ -37,7 +37,7 @@
                 <td>${u.points}</td>
                 <td>
                     <c:forEach items="${u.answers}" var="answer">
-                        <c:if test="${answer.correct}">${answer.text}</c:if>
+                        <c:if test="${answer.correct}"><div class="chip green accent-2">${answer.text}</div></c:if>
                     </c:forEach>
                 </td>
                 <td><a href="edit-question-form.jsp?id=${u.id}"><i class="material-icons edit-btn">create</i></a></td>

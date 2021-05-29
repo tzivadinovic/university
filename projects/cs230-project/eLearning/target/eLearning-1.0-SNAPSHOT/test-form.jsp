@@ -23,7 +23,7 @@
     <h6>Questions:</h6>
     <div class="input-field col s12">
         <select multiple name="questions">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="" disabled>Choose your option</option>
             <c:forEach items="${questions}" var="question">
                 <option value="${question.id}">${question.text}</option>
             </c:forEach>
@@ -33,7 +33,7 @@
     <h6>Users:</h6>
     <div class="input-field col s12">
         <select multiple name="users">
-            <option value="" disabled selected>Choose your option</option>
+            <option value="" disabled>Choose your option</option>
             <c:forEach items="${users}" var="user">
                 <option value="${user.id}">${user.firstName} ${user.firstName}</option>
             </c:forEach>
@@ -56,9 +56,14 @@
         color: white;
     }
 
+    input[type=datetime-local]{
+        color: white;
+    }
+
     input[type=number] {
         color: white;
     }
+
 
     form {
         width: 20%;

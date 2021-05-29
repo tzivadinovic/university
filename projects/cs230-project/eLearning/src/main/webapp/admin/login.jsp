@@ -12,6 +12,7 @@
 <body>
 <%@ include file="../header.jsp" %>
 
+<jsp:include page="/errorList.jsp"/>
 <div class="container">
     <div class="row">
         <form class="col s12" method="post" action="${pageContext.request.contextPath}/login">
@@ -23,15 +24,17 @@
                     <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">account_circle</i>
                         <input id="username" name="username" type="text" class="validate">
+                        <label for="username"><fmt:message key="login.username.label"/></label>
                     </div>
                     <div class="input-field col s12 m12 l12">
                         <i class="material-icons prefix">lock</i>
                         <input id="password" name="password" type="password" class="validate">
+                        <label for="password"><fmt:message key="login.password.label"/></label>
                     </div>
                     <div class="row">
                         <div class="col s12">
                             <button class="btn waves-light light-blue lighten-1 right" type="submit" name="action">
-                                Login<i class="material-icons right">send</i>
+                                <fmt:message key="login.submit"/><i class="material-icons right">send</i>
                             </button>
                         </div>
                     </div>

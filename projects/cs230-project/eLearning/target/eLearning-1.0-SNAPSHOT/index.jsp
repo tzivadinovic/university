@@ -7,8 +7,8 @@
 <body>
 <%@ include file="header.jsp" %>
 <br>
-
-<div class="row">
+<%if (loggedIn) {%>
+<div class="row" style="margin-top: 6%">
     <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
@@ -69,7 +69,8 @@
         </div>
     </div>
 </div>
-    <jsp:include page="footer.html"></jsp:include>
+<%}%>
+<jsp:include page="footer.html"></jsp:include>
 </body>
 
 <style>
@@ -80,7 +81,7 @@
         padding: 0;
     }
 
-    html{
+    html {
         min-height: 100vh;
         margin: 0;
         padding: 0;

@@ -95,7 +95,7 @@
         width: 20%;
         text-align: center;
         margin-left: 40%;
-        margin-top: 8%;
+        margin-top: 4%;
     }
 
     body {
@@ -103,6 +103,10 @@
     }
 
     h6 {
+        color: white;
+    }
+
+    textarea{
         color: white;
     }
 </style>

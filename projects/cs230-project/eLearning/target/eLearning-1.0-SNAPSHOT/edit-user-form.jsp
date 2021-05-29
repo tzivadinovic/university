@@ -9,6 +9,7 @@
 <%@page import="rs.ac.metropolitan.eLearning.database.dao.UserDAO,rs.ac.metropolitan.eLearning.entity.User" %>
 <%@ page import="rs.ac.metropolitan.eLearning.database.dao.RoleDAO" %>
 <%@ page import="java.util.List" %>
+<%@ page import="rs.ac.metropolitan.eLearning.entity.Role" %>
 <%@ include file="header.jsp" %>
 <%
     UserDAO userDAO = new UserDAO();

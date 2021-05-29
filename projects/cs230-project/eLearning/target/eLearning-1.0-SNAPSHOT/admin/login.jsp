@@ -41,6 +41,11 @@
     </div>
     <br><br>
 </div>
+<style>
+    .row{
+        margin-top: 5%;
+    }
+</style>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         M.updateTextFields()

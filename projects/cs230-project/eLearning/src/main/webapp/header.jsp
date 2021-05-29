@@ -1,5 +1,5 @@
-<%@ page import="rs.ac.metropolitan.eLearning.entity.Role" %>
-<%@ page import="java.util.HashSet" %>
+<%@ page import="rs.ac.metropolitan.eLearning.database.dao.UserDAO" %>
+<%@ page import="rs.ac.metropolitan.eLearning.entity.User" %>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -92,8 +92,8 @@
 <%
     String username = (String) session.getAttribute("username");
     Integer id = (Integer) session.getAttribute("id");
-    Iterable<Role> roles = session.getAttribute("roles") != null ? ((Iterable<Role>) session.getAttribute("roles")) : new HashSet<Role>();
     boolean loggedIn = username != null && id != null;
+    User user = new UserDAO().findByUsername(username);
 %>
 <div id="header">
     <div class="shell">
@@ -111,6 +111,11 @@
                 <li><a href="${pageContext.request.contextPath}/admin/logout" class="active">Logout</a></li>
                 <%}%>
             </ul>
+            <%if (loggedIn) {%>
+            <div style="color: #a8eb12;">
+                <span style="color: white;">Hi, </span><span style="color: #a8eb12;"><%=user.getFirstName()%></span>
+            </div>
+            <%}%>
         </div>
     </div>
 </div>

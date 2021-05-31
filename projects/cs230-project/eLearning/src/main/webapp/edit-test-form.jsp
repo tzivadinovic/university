@@ -53,7 +53,7 @@
             <option value="" disabled>Choose your option</option>
             <c:forEach items="${users}" var="user">
                 <option ${test.users.contains(user) ? 'selected' : ''}
-                        value="${user.id}">${user.firstName} ${user.firstName}</option>
+                        value="${user.id}">${user.firstName} ${user.lastName}</option>
             </c:forEach>
         </select>
     </div>

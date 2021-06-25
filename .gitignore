@@ -1,0 +1,34 @@
+# build files
+build
+out
+cmake-build-debug
+cmake-build-release
+dist
+target
+
+# IDE configuration
+.idea
+.vscode
+.vs
+
+# java compiled
+*.class
+
+# python
+venv
+node_modules
+__pycache__
+
+# MS and Libre office backup
+.~*
+~*.docx
+
+# Powerdesigner backup files
+*.oob
+*.eab
+*.rqb
+*.pjb
+
+# Visaul Paradigm backup files
+*.vpp.bak_????
+*.vpp.lck

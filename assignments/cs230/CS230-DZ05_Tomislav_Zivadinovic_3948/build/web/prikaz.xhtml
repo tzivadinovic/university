@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Prikaz</title>
+    </h:head>
+       <h:body>
+        <h2>Stranica za prikaz</h2>
+        <h:panelGrid columns="2" columnClasses="rightalign-bold,leftalign">
+            <h:outputText value="Ime:"/>
+            ${studentBean.ime}
+            <h:outputText value="Prezime:"/>
+            ${studentBean.prezime}
+            <h:outputText value="Broj Indeksa:"/>
+            ${studentBean.brojIndeksa}
+            <h:outputText value="Tip studija:"/>
+            ${studentBean.tipStudiranja}
+            <h:outputText value="Fakultet:"/>
+            ${studentBean.fakultet}
+            </h:panelGrid>
+        </h:body>
+</html>
+

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListOveraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListOveraEmpty}" rendered="#{overaController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{overaController.items.rowCount > 0}">
+                    <h:outputText value="#{overaController.pagination.pageFirstItem + 1}..#{overaController.pagination.pageLastItem + 1}/#{overaController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{overaController.previous}" value="#{bundle.Previous} #{overaController.pagination.pageSize}" rendered="#{overaController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{overaController.next}" value="#{bundle.Next} #{overaController.pagination.pageSize}" rendered="#{overaController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{overaController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOveraTitle_overaId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.overaId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOveraTitle_ocena}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.ocena}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOveraTitle_datumOvera}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.datumOvera}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOveraTitle_indeks}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.indeks}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListOveraTitle_predmetId}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.predmetId}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{overaController.prepareView}" value="#{bundle.ListOveraViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{overaController.prepareEdit}" value="#{bundle.ListOveraEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{overaController.destroy}" value="#{bundle.ListOveraDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{overaController.prepareCreate}" value="#{bundle.ListOveraCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListOveraIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

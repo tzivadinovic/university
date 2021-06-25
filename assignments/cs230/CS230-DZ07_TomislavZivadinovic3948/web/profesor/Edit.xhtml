@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditProfesorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditProfesorLabel_profesorId}" for="profesorId" />
+                    <h:inputText id="profesorId" value="#{profesorController.selected.profesorId}" title="#{bundle.EditProfesorTitle_profesorId}" required="true" requiredMessage="#{bundle.EditProfesorRequiredMessage_profesorId}"/>
+                    <h:outputLabel value="#{bundle.EditProfesorLabel_ime}" for="ime" />
+                    <h:inputText id="ime" value="#{profesorController.selected.ime}" title="#{bundle.EditProfesorTitle_ime}" />
+                    <h:outputLabel value="#{bundle.EditProfesorLabel_prezime}" for="prezime" />
+                    <h:inputText id="prezime" value="#{profesorController.selected.prezime}" title="#{bundle.EditProfesorTitle_prezime}" />
+                    <h:outputLabel value="#{bundle.EditProfesorLabel_telefon}" for="telefon" />
+                    <h:inputTextarea rows="4" cols="30" id="telefon" value="#{profesorController.selected.telefon}" title="#{bundle.EditProfesorTitle_telefon}" />
+                    <h:outputLabel value="#{bundle.EditProfesorLabel_zvanje}" for="zvanje" />
+                    <h:inputText id="zvanje" value="#{profesorController.selected.zvanje}" title="#{bundle.EditProfesorTitle_zvanje}" />
+                </h:panelGrid>
+                <h:commandLink action="#{profesorController.update}" value="#{bundle.EditProfesorSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditProfesorViewLink}"/>
+                <br />
+                <h:commandLink action="#{profesorController.prepareList}" value="#{bundle.EditProfesorShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditProfesorIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreatePredmetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <b:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_predmetId}" for="predmetId" />
+                    <b:inputText id="predmetId" value="#{predmetController.selected.predmetId}" title="#{bundle.CreatePredmetTitle_predmetId}" required="true" requiredMessage="#{bundle.CreatePredmetRequiredMessage_predmetId}"/>
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_naziv}" for="naziv" />
+                    <b:inputText id="naziv" value="#{predmetController.selected.naziv}" title="#{bundle.CreatePredmetTitle_naziv}" />
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_espb}" for="espb" />
+                    <b:inputText id="espb" value="#{predmetController.selected.espb}" title="#{bundle.CreatePredmetTitle_espb}" />
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_brCasPredavanja}" for="brCasPredavanja" />
+                    <b:inputText id="brCasPredavanja" value="#{predmetController.selected.brCasPredavanja}" title="#{bundle.CreatePredmetTitle_brCasPredavanja}" />
+                    <h:outputLabel value="#{bundle.CreatePredmetLabel_brCasVezbe}" for="brCasVezbe" />
+                    <b:inputText id="brCasVezbe" value="#{predmetController.selected.brCasVezbe}" title="#{bundle.CreatePredmetTitle_brCasVezbe}" />
+                </b:panelGrid>
+                <br />
+                <h:commandLink action="#{predmetController.create}" value="#{bundle.CreatePredmetSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{predmetController.prepareList}" value="#{bundle.CreatePredmetShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreatePredmetIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

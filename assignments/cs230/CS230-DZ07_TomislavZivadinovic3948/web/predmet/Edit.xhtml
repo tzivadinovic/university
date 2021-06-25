@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditPredmetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditPredmetLabel_predmetId}" for="predmetId" />
+                    <h:inputText id="predmetId" value="#{predmetController.selected.predmetId}" title="#{bundle.EditPredmetTitle_predmetId}" required="true" requiredMessage="#{bundle.EditPredmetRequiredMessage_predmetId}"/>
+                    <h:outputLabel value="#{bundle.EditPredmetLabel_naziv}" for="naziv" />
+                    <h:inputText id="naziv" value="#{predmetController.selected.naziv}" title="#{bundle.EditPredmetTitle_naziv}" />
+                    <h:outputLabel value="#{bundle.EditPredmetLabel_espb}" for="espb" />
+                    <h:inputText id="espb" value="#{predmetController.selected.espb}" title="#{bundle.EditPredmetTitle_espb}" />
+                    <h:outputLabel value="#{bundle.EditPredmetLabel_brCasPredavanja}" for="brCasPredavanja" />
+                    <h:inputText id="brCasPredavanja" value="#{predmetController.selected.brCasPredavanja}" title="#{bundle.EditPredmetTitle_brCasPredavanja}" />
+                    <h:outputLabel value="#{bundle.EditPredmetLabel_brCasVezbe}" for="brCasVezbe" />
+                    <h:inputText id="brCasVezbe" value="#{predmetController.selected.brCasVezbe}" title="#{bundle.EditPredmetTitle_brCasVezbe}" />
+                </h:panelGrid>
+                <h:commandLink action="#{predmetController.update}" value="#{bundle.EditPredmetSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditPredmetViewLink}"/>
+                <br />
+                <h:commandLink action="#{predmetController.prepareList}" value="#{bundle.EditPredmetShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditPredmetIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <b:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_indeks}" for="indeks" />
+                    <b:inputText id="indeks" value="#{studentController.selected.indeks}" title="#{bundle.CreateStudentTitle_indeks}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_indeks}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_ime}" for="ime" />
+                    <b:inputText id="ime" value="#{studentController.selected.ime}" title="#{bundle.CreateStudentTitle_ime}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_prezime}" for="prezime" />
+                    <b:inputText id="prezime" value="#{studentController.selected.prezime}" title="#{bundle.CreateStudentTitle_prezime}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_tipStudiranja}" for="tipStudiranja" />
+                    <b:inputText id="tipStudiranja" value="#{studentController.selected.tipStudiranja}" title="#{bundle.CreateStudentTitle_tipStudiranja}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_datumRodjenja}" for="datumRodjenja" />
+                    <b:inputText id="datumRodjenja" value="#{studentController.selected.datumRodjenja}" title="#{bundle.CreateStudentTitle_datumRodjenja}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </b:inputText>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_telefon}" for="telefon" />
+                    <b:inputTextarea rows="4" cols="30" id="telefon" value="#{studentController.selected.telefon}" title="#{bundle.CreateStudentTitle_telefon}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_gradRodjenja}" for="gradRodjenja" />
+                    <b:inputText id="gradRodjenja" value="#{studentController.selected.gradRodjenja}" title="#{bundle.CreateStudentTitle_gradRodjenja}" />
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_pol}" for="pol" />
+                    <b:inputText id="pol" value="#{studentController.selected.pol}" title="#{bundle.CreateStudentTitle_pol}" required="true" requiredMessage="#{bundle.CreateStudentRequiredMessage_pol}"/>
+                    <h:outputLabel value="#{bundle.CreateStudentLabel_smerId}" for="smerId" />
+                    <h:selectOneMenu id="smerId" value="#{studentController.selected.smerId}" title="#{bundle.CreateStudentTitle_smerId}" >
+                        <f:selectItems value="#{smerController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </b:panelGrid>
+                <br />
+                <h:commandLink action="#{studentController.create}" value="#{bundle.CreateStudentSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{studentController.prepareList}" value="#{bundle.CreateStudentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateStudentIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

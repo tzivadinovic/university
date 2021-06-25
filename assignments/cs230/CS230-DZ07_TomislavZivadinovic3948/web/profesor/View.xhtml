@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewProfesorTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <div class="container">
+                    <b:panelGrid columns="2">
+                        <h:outputText value="#{bundle.ViewProfesorLabel_profesorId}"/>
+                        <h:outputText value="#{profesorController.selected.profesorId}" title="#{bundle.ViewProfesorTitle_profesorId}"/>
+                        <h:outputText value="#{bundle.ViewProfesorLabel_ime}"/>
+                        <h:outputText value="#{profesorController.selected.ime}" title="#{bundle.ViewProfesorTitle_ime}"/>
+                        <h:outputText value="#{bundle.ViewProfesorLabel_prezime}"/>
+                        <h:outputText value="#{profesorController.selected.prezime}" title="#{bundle.ViewProfesorTitle_prezime}"/>
+                        <h:outputText value="#{bundle.ViewProfesorLabel_telefon}"/>
+                        <h:outputText value="#{profesorController.selected.telefon}" title="#{bundle.ViewProfesorTitle_telefon}"/>
+                        <h:outputText value="#{bundle.ViewProfesorLabel_zvanje}"/>
+                        <h:outputText value="#{profesorController.selected.zvanje}" title="#{bundle.ViewProfesorTitle_zvanje}"/>
+                    </b:panelGrid>
+                    <br />
+                    <h:commandLink action="#{profesorController.destroyAndView}" value="#{bundle.ViewProfesorDestroyLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="Edit" value="#{bundle.ViewProfesorEditLink}"/>
+                    <br />
+                    <h:commandLink action="#{profesorController.prepareCreate}" value="#{bundle.ViewProfesorCreateLink}" />
+                    <br />
+                    <h:commandLink action="#{profesorController.prepareList}" value="#{bundle.ViewProfesorShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ViewProfesorIndexLink}"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

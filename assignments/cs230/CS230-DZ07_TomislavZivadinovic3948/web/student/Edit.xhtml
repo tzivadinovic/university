@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditStudentLabel_indeks}" for="indeks" />
+                    <h:inputText id="indeks" value="#{studentController.selected.indeks}" title="#{bundle.EditStudentTitle_indeks}" required="true" requiredMessage="#{bundle.EditStudentRequiredMessage_indeks}"/>
+                    <h:outputLabel value="#{bundle.EditStudentLabel_ime}" for="ime" />
+                    <h:inputText id="ime" value="#{studentController.selected.ime}" title="#{bundle.EditStudentTitle_ime}" />
+                    <h:outputLabel value="#{bundle.EditStudentLabel_prezime}" for="prezime" />
+                    <h:inputText id="prezime" value="#{studentController.selected.prezime}" title="#{bundle.EditStudentTitle_prezime}" />
+                    <h:outputLabel value="#{bundle.EditStudentLabel_tipStudiranja}" for="tipStudiranja" />
+                    <h:inputText id="tipStudiranja" value="#{studentController.selected.tipStudiranja}" title="#{bundle.EditStudentTitle_tipStudiranja}" />
+                    <h:outputLabel value="#{bundle.EditStudentLabel_datumRodjenja}" for="datumRodjenja" />
+                    <h:inputText id="datumRodjenja" value="#{studentController.selected.datumRodjenja}" title="#{bundle.EditStudentTitle_datumRodjenja}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditStudentLabel_telefon}" for="telefon" />
+                    <h:inputTextarea rows="4" cols="30" id="telefon" value="#{studentController.selected.telefon}" title="#{bundle.EditStudentTitle_telefon}" />
+                    <h:outputLabel value="#{bundle.EditStudentLabel_gradRodjenja}" for="gradRodjenja" />
+                    <h:inputText id="gradRodjenja" value="#{studentController.selected.gradRodjenja}" title="#{bundle.EditStudentTitle_gradRodjenja}" />
+                    <h:outputLabel value="#{bundle.EditStudentLabel_pol}" for="pol" />
+                    <h:inputText id="pol" value="#{studentController.selected.pol}" title="#{bundle.EditStudentTitle_pol}" required="true" requiredMessage="#{bundle.EditStudentRequiredMessage_pol}"/>
+                    <h:outputLabel value="#{bundle.EditStudentLabel_smerId}" for="smerId" />
+                    <h:selectOneMenu id="smerId" value="#{studentController.selected.smerId}" title="#{bundle.EditStudentTitle_smerId}" >
+                        <f:selectItems value="#{smerController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{studentController.update}" value="#{bundle.EditStudentSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditStudentViewLink}"/>
+                <br />
+                <h:commandLink action="#{studentController.prepareList}" value="#{bundle.EditStudentShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditStudentIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

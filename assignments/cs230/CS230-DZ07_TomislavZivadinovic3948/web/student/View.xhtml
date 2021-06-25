@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewStudentTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <div class="container">
+                    <b:panelGrid columns="2">
+                        <h:outputText value="#{bundle.ViewStudentLabel_indeks}"/>
+                        <h:outputText value="#{studentController.selected.indeks}" title="#{bundle.ViewStudentTitle_indeks}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_ime}"/>
+                        <h:outputText value="#{studentController.selected.ime}" title="#{bundle.ViewStudentTitle_ime}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_prezime}"/>
+                        <h:outputText value="#{studentController.selected.prezime}" title="#{bundle.ViewStudentTitle_prezime}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_tipStudiranja}"/>
+                        <h:outputText value="#{studentController.selected.tipStudiranja}" title="#{bundle.ViewStudentTitle_tipStudiranja}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_datumRodjenja}"/>
+                        <h:outputText value="#{studentController.selected.datumRodjenja}" title="#{bundle.ViewStudentTitle_datumRodjenja}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewStudentLabel_telefon}"/>
+                        <h:outputText value="#{studentController.selected.telefon}" title="#{bundle.ViewStudentTitle_telefon}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_gradRodjenja}"/>
+                        <h:outputText value="#{studentController.selected.gradRodjenja}" title="#{bundle.ViewStudentTitle_gradRodjenja}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_pol}"/>
+                        <h:outputText value="#{studentController.selected.pol}" title="#{bundle.ViewStudentTitle_pol}"/>
+                        <h:outputText value="#{bundle.ViewStudentLabel_smerId}"/>
+                        <h:outputText value="#{studentController.selected.smerId}" title="#{bundle.ViewStudentTitle_smerId}"/>
+                    </b:panelGrid>
+                    <br />
+                    <h:commandLink action="#{studentController.destroyAndView}" value="#{bundle.ViewStudentDestroyLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="Edit" value="#{bundle.ViewStudentEditLink}"/>
+                    <br />
+                    <h:commandLink action="#{studentController.prepareCreate}" value="#{bundle.ViewStudentCreateLink}" />
+                    <br />
+                    <h:commandLink action="#{studentController.prepareList}" value="#{bundle.ViewStudentShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ViewStudentIndexLink}"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

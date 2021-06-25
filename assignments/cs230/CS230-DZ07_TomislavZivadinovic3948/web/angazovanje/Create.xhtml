@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAngazovanjeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <b:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAngazovanjeLabel_angazovanjeId}" for="angazovanjeId" />
+                    <b:inputText id="angazovanjeId" value="#{angazovanjeController.selected.angazovanjeId}" title="#{bundle.CreateAngazovanjeTitle_angazovanjeId}" required="true" requiredMessage="#{bundle.CreateAngazovanjeRequiredMessage_angazovanjeId}"/>
+                    <h:outputLabel value="#{bundle.CreateAngazovanjeLabel_profesorId}" for="profesorId" />
+                    <h:selectOneMenu id="profesorId" value="#{angazovanjeController.selected.profesorId}" title="#{bundle.CreateAngazovanjeTitle_profesorId}" >
+                        <f:selectItems value="#{profesorController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateAngazovanjeLabel_predmetId}" for="predmetId" />
+                    <h:selectOneMenu id="predmetId" value="#{angazovanjeController.selected.predmetId}" title="#{bundle.CreateAngazovanjeTitle_predmetId}" >
+                        <f:selectItems value="#{predmetController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </b:panelGrid>
+                <br />
+                <h:commandLink action="#{angazovanjeController.create}" value="#{bundle.CreateAngazovanjeSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{angazovanjeController.prepareList}" value="#{bundle.CreateAngazovanjeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAngazovanjeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

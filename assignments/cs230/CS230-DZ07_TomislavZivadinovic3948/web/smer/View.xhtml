@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSmerTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <div class="container">
+                    <b:panelGrid columns="2">
+                        <h:outputText value="#{bundle.ViewSmerLabel_smerId}"/>
+                        <h:outputText value="#{smerController.selected.smerId}" title="#{bundle.ViewSmerTitle_smerId}"/>
+                        <h:outputText value="#{bundle.ViewSmerLabel_smerOpis}"/>
+                        <h:outputText value="#{smerController.selected.smerOpis}" title="#{bundle.ViewSmerTitle_smerOpis}"/>
+                    </b:panelGrid>
+                    <br />
+                    <h:commandLink action="#{smerController.destroyAndView}" value="#{bundle.ViewSmerDestroyLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="Edit" value="#{bundle.ViewSmerEditLink}"/>
+                    <br />
+                    <h:commandLink action="#{smerController.prepareCreate}" value="#{bundle.ViewSmerCreateLink}" />
+                    <br />
+                    <h:commandLink action="#{smerController.prepareList}" value="#{bundle.ViewSmerShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ViewSmerIndexLink}"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

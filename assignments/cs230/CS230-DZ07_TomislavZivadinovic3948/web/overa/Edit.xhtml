@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditOveraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditOveraLabel_overaId}" for="overaId" />
+                    <h:inputText id="overaId" value="#{overaController.selected.overaId}" title="#{bundle.EditOveraTitle_overaId}" required="true" requiredMessage="#{bundle.EditOveraRequiredMessage_overaId}"/>
+                    <h:outputLabel value="#{bundle.EditOveraLabel_ocena}" for="ocena" />
+                    <h:inputText id="ocena" value="#{overaController.selected.ocena}" title="#{bundle.EditOveraTitle_ocena}" />
+                    <h:outputLabel value="#{bundle.EditOveraLabel_datumOvera}" for="datumOvera" />
+                    <h:inputText id="datumOvera" value="#{overaController.selected.datumOvera}" title="#{bundle.EditOveraTitle_datumOvera}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.EditOveraLabel_indeks}" for="indeks" />
+                    <h:selectOneMenu id="indeks" value="#{overaController.selected.indeks}" title="#{bundle.EditOveraTitle_indeks}" >
+                        <f:selectItems value="#{studentController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.EditOveraLabel_predmetId}" for="predmetId" />
+                    <h:selectOneMenu id="predmetId" value="#{overaController.selected.predmetId}" title="#{bundle.EditOveraTitle_predmetId}" >
+                        <f:selectItems value="#{predmetController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{overaController.update}" value="#{bundle.EditOveraSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditOveraViewLink}"/>
+                <br />
+                <h:commandLink action="#{overaController.prepareList}" value="#{bundle.EditOveraShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditOveraIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

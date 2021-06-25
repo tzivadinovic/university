@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewOveraTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <b:panel id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </b:panel>
+            <h:form>
+                <div class="container">
+                    <b:panelGrid columns="2">
+                        <h:outputText value="#{bundle.ViewOveraLabel_overaId}"/>
+                        <h:outputText value="#{overaController.selected.overaId}" title="#{bundle.ViewOveraTitle_overaId}"/>
+                        <h:outputText value="#{bundle.ViewOveraLabel_ocena}"/>
+                        <h:outputText value="#{overaController.selected.ocena}" title="#{bundle.ViewOveraTitle_ocena}"/>
+                        <h:outputText value="#{bundle.ViewOveraLabel_datumOvera}"/>
+                        <h:outputText value="#{overaController.selected.datumOvera}" title="#{bundle.ViewOveraTitle_datumOvera}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                        </h:outputText>
+                        <h:outputText value="#{bundle.ViewOveraLabel_indeks}"/>
+                        <h:outputText value="#{overaController.selected.indeks}" title="#{bundle.ViewOveraTitle_indeks}"/>
+                        <h:outputText value="#{bundle.ViewOveraLabel_predmetId}"/>
+                        <h:outputText value="#{overaController.selected.predmetId}" title="#{bundle.ViewOveraTitle_predmetId}"/>
+                    </b:panelGrid>
+                    <br />
+                    <h:commandLink action="#{overaController.destroyAndView}" value="#{bundle.ViewOveraDestroyLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="Edit" value="#{bundle.ViewOveraEditLink}"/>
+                    <br />
+                    <h:commandLink action="#{overaController.prepareCreate}" value="#{bundle.ViewOveraCreateLink}" />
+                    <br />
+                    <h:commandLink action="#{overaController.prepareList}" value="#{bundle.ViewOveraShowAllLink}"/>
+                    <br />
+                    <br />
+                    <h:link outcome="/index" value="#{bundle.ViewOveraIndexLink}"/>
+                </div>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

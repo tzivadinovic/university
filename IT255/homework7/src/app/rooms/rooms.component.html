@@ -1,0 +1,48 @@
+<div class="rooms-wrapper">
+  <div class="add-randomize-btn-group">
+    <button mat-fab color="primary" class="add-fab" (click)="openAddRoomDialog()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <div class="randomize-input-group">
+      <button mat-raised-button color="primary" (click)="shuffle()" class="randomize-btn">Izmešaj redosled</button>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Unesite neki tekst" [(ngModel)]="input" (change)="checkInputLength(input)">
+      </mat-form-field>
+      <br>
+      <label *ngIf="input.length < 6">Uneti tekst ima manje od 6 karaktera</label>
+    </div>
+  </div>
+  <form class="search">
+    <mat-form-field>
+      <span matPrefix></span>
+      <input type="number" matInput placeholder="Pretraži po ceni" name="search" [(ngModel)]="search">
+      <button matSuffix mat-button>
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+  </form>
+</div>
+
+<div class="card" *ngFor="let room of roomsList | search: search">
+  <mat-card>
+    <div class="edit-delete-btn-group">
+      <button mat-icon-button (click)="deleteRoom(room.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button (click)="editRoom(room)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+    <mat-card-title>Sprat: {{room.sprat}}</mat-card-title>
+    <mat-card-subtitle>Soba: {{room.soba}}</mat-card-subtitle>
+    <mat-card-content>
+      <h2>Opis:</h2>
+      <p class="description">{{room.opis}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <h4>Cena iznajmljivanja: {{room.cena}} RSD</h4>
+      <button mat-flat-button color="accent">Iznajmi</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

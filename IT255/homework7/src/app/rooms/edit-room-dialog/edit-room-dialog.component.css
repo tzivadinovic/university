@@ -1,0 +1,14 @@
+.fields {
+  column-count: 2;
+  width: 34em;
+}
+
+mat-form-field, mat-checkbox{
+  width: 15em;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+button {
+  margin-left: 1em;
+}
